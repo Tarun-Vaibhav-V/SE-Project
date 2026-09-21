@@ -5,32 +5,6 @@ return a multi-risk profile (scarcity / flood / drought / groundwater), **today 
 2030/2050 scenarios**, with **explainable drivers behind every score** — computed from satellite
 data, never invented.
 
----
-
-## 1. Run it on a new machine
-
-Prereqs: **Python 3.11+**, **Node 18+**, internet. Supabase is cloud-hosted (already seeded),
-so there is no database setup.
-
-```bash
-git clone https://github.com/Tarun-Vaibhav-V/hydris-ai
-cd hydris-ai
-
-# ---- backend (FastAPI GEE-compute service) ----
-cd backend
-cp .env.example .env          # then edit .env and fill in your real keys
-pip install -r requirements.txt
-python -m uvicorn main:app --host 127.0.0.1 --port 8000
-# put your GEE service-account JSON where GEE_SA_KEY_FILE points (default: ../data/)
-# verify: curl http://127.0.0.1:8000/health  ->  {"ok":true,"gee":true}
-
-# ---- frontend (new terminal) ----
-cd ../frontend
-cp .env.example .env          # then edit .env and fill in your Supabase anon key
-npm install
-npm run dev
-# open http://localhost:5173
-```
 
 Smoke test: map loads dark with 6 colored basin polygons → click the Chennai pin → risk card
 with three PWI rings → "Why drought?" → attribution bars + AI narrative → "📰 Local news" →
