@@ -1,6 +1,6 @@
 # Hydris AI — Basin Intelligence & Water Risk (PS1)
 
-**DataCraft'26 build.** Enter factory locations → automatically resolve each site's watershed →
+**build.** Enter factory locations → automatically resolve each site's watershed →
 return a multi-risk profile (scarcity / flood / drought / groundwater), **today and under
 2030/2050 scenarios**, with **explainable drivers behind every score** — computed from satellite
 data, never invented.
@@ -57,9 +57,7 @@ implementation and gate tests; their outputs are already seeded into Supabase.
 - **Problem statement**: PS1 "Basin Intelligence and Water Risk" (see
   `Problem Statement- DataCraft'26 Hydris AI.pdf`). Deliverables: interactive site map, basin
   boundaries, current & future risk scores, explanation of what drives each score.
-- **Judging rubric**: Approach 30% · Product 20% · Smart AI use 15% · Water/PWI rigour 15% ·
-  Pitch 10% · Working slice 10% · +5% ambition · +5% sellable. **Approach beats output; honest
-  skips beat fake completeness.**
+  
 - **PWI framework**: Positive Water Impact = **Availability / Quality / Accessibility**. We map
   WRI's 13 risk indicators onto these three dimensions (the ring gauges) — the vocabulary the
   judges score on.
