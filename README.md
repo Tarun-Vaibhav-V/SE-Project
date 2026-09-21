@@ -275,20 +275,6 @@ Each row is created from its `*.example` template and stays local only.
 
 ---
 
-## 11. Roadmap — consecutive next steps
-
-1. **Portfolio table UI** — ranked, sortable site list (backend `/portfolio` done; UI missing).
-2. **Batch CSV upload** — CSV → rows into `sites` → portfolio table (UI missing).
-3. **Global choropleth tiles** — `GET /tiles/{layer}` via GEE `getMapId` so all 7 layers color
-   world-wide, not just stored basins.
-4. **Login** — Supabase Auth magic-link gate (product polish; not a PS1 deliverable).
-5. **Deploy** — frontend → Vercel; backend → Render/Cloud Run (set env from `backend/.env`,
-   upload the SA key as a secret file); Supabase already cloud. Then precompute demo sites.
-6. **Demo script (4 min)** — map → Chennai → PWI rings → sub-basins → 2050 toggle → why-drought
-   (attribution + Groq narrative) → local news → add a new factory live → portfolio.
-7. **Secret rotation + repo public** — rotate all keys in §9, purge git history
-   (`git filter-repo`), THEN open-source.
-
 ## Attribution
 
 WRI Aqueduct 4.0 (CC-BY 4.0) · Google Earth Engine · CHIRPS (UCSB CHC) · NASA GLDAS/GRACE/SMAP/
