@@ -1,0 +1,21 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+earthengine-api>=1.5
+numpy>=1.26
+scipy>=1.13
+supabase>=2.6
+geopy>=2.4
+groq>=0.13
+python-dotenv>=1.0
+pytest>=8.2
+httpx>=0.27
+
+# Hydris Stewardship Copilot — RAG stack (Python 3.14 compatible)
+openpyxl>=3.1
+pypdf>=4.0
+pandas>=2.0
+faiss-cpu>=1.14
+sentence-transformers>=5.0
+torch>=2.13
+rank-bm25>=0.2.2
+python-multipart>=0.0.9

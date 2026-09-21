@@ -1,0 +1,42 @@
+# SECRETS — never commit. Copy the *.example files and fill in real values locally.
+# Real keys live ONLY in these ignored files (see README §9).
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# GEE service-account JSON key (contains a private key). Keep only locally.
+data/*.json
+!data/drivers_demo.json
+*-service-account*.json
+gen-lang-client-*.json
+
+# dependencies / builds
+node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# editor / OS noise
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# local scratch
+*.log
+
+frontend/tsconfig.tsbuildinfo
+
+# reference material & data sources — kept local, not part of the project repo
+backend/data/
+backend/build/
+*Driving_Factors*
+Open_Water_Data_Catalog.xlsx
+Water Stewardship Module*.xlsx
+Problem Statement*.pdf
+.claude/

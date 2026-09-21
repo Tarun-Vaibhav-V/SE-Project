@@ -1,0 +1,897 @@
+{
+ "S1": {
+  "site": {
+   "id": "S1",
+   "name": "Chennai plant (IN)",
+   "lat": 13.0827,
+   "lng": 80.2707
+  },
+  "drought": {
+   "hazard_0_1": 0.464,
+   "hazard_0_5": 2.32,
+   "attribution_pct": {
+    "rainfall_SPI": 21.9,
+    "water_balance_SPEI": 23.4,
+    "soil_moisture": 11.7,
+    "vegetation_NDVI": 7.5,
+    "runoff": 19.8,
+    "storage_GRACE": 15.8
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall_SPI": {
+     "severity": 0.58,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "index": -0.32,
+     "method": "gamma-SPI"
+    },
+    "water_balance_SPEI": {
+     "severity": 0.62,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY + MODIS/061/MOD16A2GF",
+     "confidence": "computed",
+     "index": -0.48,
+     "method": "z of P-PET (SPEI-lite)"
+    },
+    "soil_moisture": {
+     "severity": 0.361,
+     "weight": 0.15,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": 0.56
+    },
+    "vegetation_NDVI": {
+     "severity": 0.231,
+     "weight": 0.15,
+     "source": "MODIS/061/MOD13Q1",
+     "confidence": "computed",
+     "index": 1.08
+    },
+    "runoff": {
+     "severity": 0.525,
+     "weight": 0.175,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": -0.1
+    },
+    "storage_GRACE": {
+     "severity": 0.418,
+     "weight": 0.175,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "index": 0.33,
+     "caveat": "~300 km resolution - basin/regional signal, never site-scale"
+    }
+   },
+   "excluded": [],
+   "risk": "drought",
+   "pfaf_id": 453750,
+   "runtime_s": 2.9
+  },
+  "groundwater": {
+   "hazard_0_1": 0.555,
+   "hazard_0_5": 2.77,
+   "attribution_pct": {
+    "extraction_pressure": 55.7,
+    "aquifer_decline": 31.9,
+    "recharge_worry": 12.4
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "extraction_pressure": {
+     "severity": 0.75,
+     "weight": 0.35,
+     "source": "WRI Aqueduct gtd+bwd",
+     "confidence": "proxy",
+     "caveat": "proxy - site abstraction data required for full EP (CGWB / USGS NWIS in production)"
+    },
+    "aquifer_decline": {
+     "severity": 0.501,
+     "weight": 0.3,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "trend_cm_per_yr": -0.0,
+     "caveat": "~300 km resolution - basin/regional signal"
+    },
+    "recharge_worry": {
+     "severity": 0.293,
+     "weight": 0.2,
+     "source": "UCSB-CHG/CHIRPS/DAILY + projects/soilgrids-isric/sand_mean + ESA/WorldCover/v200 + COPERNICUS/DEM/GLO30",
+     "confidence": "computed",
+     "recharge_index": 0.707
+    },
+    "quality_QD": {
+     "severity": null,
+     "weight": 0.15,
+     "source": "no global groundwater-chemistry raster",
+     "confidence": "no-data",
+     "caveat": "excluded - weights renormalized; site lab data required"
+    }
+   },
+   "excluded": [
+    "quality_QD"
+   ],
+   "risk": "groundwater",
+   "pfaf_id": 453750,
+   "runtime_s": 2.5
+  },
+  "flood": {
+   "hazard_0_1": 0.714,
+   "hazard_0_5": 3.57,
+   "attribution_pct": {
+    "rainfall": 34.0,
+    "runoff_SCS_CN": 24.3,
+    "catchment": 20.0,
+    "soil_saturation": 16.4,
+    "urbanization": 5.3
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall": {
+     "severity": 0.972,
+     "weight": 0.25,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "design_storm_mm": 116.7,
+     "method": "mean+1std of annual 1-day maxima, /120mm ref"
+    },
+    "runoff_SCS_CN": {
+     "severity": 0.694,
+     "weight": 0.25,
+     "source": "projects/sat-io/open-datasets/HiHydroSoilv2_0/Hydrologic_Soil_Group_250m + ESA/WorldCover/v200",
+     "confidence": "computed",
+     "CN": 87,
+     "HSG": 3,
+     "wc_class": 40,
+     "S_mm": 38.0,
+     "Q_mm": 80.9,
+     "method": "NRCS TR-55, AMC II, dual HSG->D"
+    },
+    "catchment": {
+     "severity": 0.713,
+     "weight": 0.2,
+     "source": "WWF/HydroSHEDS/15ACC + WWF/HydroSHEDS/15CONDEM",
+     "confidence": "computed",
+     "flow_acc_cells": 871,
+     "rel_elev_m": 1.9
+    },
+    "soil_saturation": {
+     "severity": 0.78,
+     "weight": 0.15,
+     "source": "NASA/SMAP/SPL4SMGP/008",
+     "confidence": "computed",
+     "caveat": "SMAP top ~5cm; Oct-Dec window each year"
+    },
+    "urbanization": {
+     "severity": 0.251,
+     "weight": 0.15,
+     "source": "JRC/GHSL/P2023A/GHS_BUILT_S",
+     "confidence": "computed",
+     "built_frac_2020": 0.356,
+     "built_change": 0.008
+    }
+   },
+   "excluded": [],
+   "risk": "flood",
+   "pfaf_id": 453750,
+   "runtime_s": 1.9
+  }
+ },
+ "S2": {
+  "site": {
+   "id": "S2",
+   "name": "Tiruppur textile (IN)",
+   "lat": 11.1085,
+   "lng": 77.3411
+  },
+  "drought": {
+   "hazard_0_1": 0.525,
+   "hazard_0_5": 2.63,
+   "attribution_pct": {
+    "rainfall_SPI": 23.4,
+    "water_balance_SPEI": 22.8,
+    "soil_moisture": 16.6,
+    "vegetation_NDVI": 5.2,
+    "runoff": 22.2,
+    "storage_GRACE": 9.8
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall_SPI": {
+     "severity": 0.703,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "index": -0.81,
+     "method": "gamma-SPI"
+    },
+    "water_balance_SPEI": {
+     "severity": 0.683,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY + MODIS/061/MOD16A2GF",
+     "confidence": "computed",
+     "index": -0.73,
+     "method": "z of P-PET (SPEI-lite)"
+    },
+    "soil_moisture": {
+     "severity": 0.582,
+     "weight": 0.15,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": -0.33
+    },
+    "vegetation_NDVI": {
+     "severity": 0.181,
+     "weight": 0.15,
+     "source": "MODIS/061/MOD13Q1",
+     "confidence": "computed",
+     "index": 1.28
+    },
+    "runoff": {
+     "severity": 0.666,
+     "weight": 0.175,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": -0.67
+    },
+    "storage_GRACE": {
+     "severity": 0.295,
+     "weight": 0.175,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "index": 0.82,
+     "caveat": "~300 km resolution - basin/regional signal, never site-scale"
+    }
+   },
+   "excluded": [],
+   "risk": "drought",
+   "pfaf_id": 453803,
+   "runtime_s": 14.4
+  },
+  "groundwater": {
+   "hazard_0_1": 0.324,
+   "hazard_0_5": 1.62,
+   "attribution_pct": {
+    "extraction_pressure": 30.0,
+    "aquifer_decline": 39.5,
+    "recharge_worry": 30.5
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "extraction_pressure": {
+     "severity": 0.236,
+     "weight": 0.35,
+     "source": "WRI Aqueduct gtd+bwd",
+     "confidence": "proxy",
+     "caveat": "proxy - site abstraction data required for full EP (CGWB / USGS NWIS in production)"
+    },
+    "aquifer_decline": {
+     "severity": 0.362,
+     "weight": 0.3,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "trend_cm_per_yr": 0.55,
+     "caveat": "~300 km resolution - basin/regional signal"
+    },
+    "recharge_worry": {
+     "severity": 0.419,
+     "weight": 0.2,
+     "source": "UCSB-CHG/CHIRPS/DAILY + projects/soilgrids-isric/sand_mean + ESA/WorldCover/v200 + COPERNICUS/DEM/GLO30",
+     "confidence": "computed",
+     "recharge_index": 0.581
+    },
+    "quality_QD": {
+     "severity": null,
+     "weight": 0.15,
+     "source": "no global groundwater-chemistry raster",
+     "confidence": "no-data",
+     "caveat": "excluded - weights renormalized; site lab data required"
+    }
+   },
+   "excluded": [
+    "quality_QD"
+   ],
+   "risk": "groundwater",
+   "pfaf_id": 453803,
+   "runtime_s": 9.8
+  },
+  "flood": {
+   "hazard_0_1": 0.49,
+   "hazard_0_5": 2.45,
+   "attribution_pct": {
+    "rainfall": 22.6,
+    "runoff_SCS_CN": 28.6,
+    "catchment": 25.4,
+    "soil_saturation": 15.5,
+    "urbanization": 7.9
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall": {
+     "severity": 0.444,
+     "weight": 0.25,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "design_storm_mm": 53.2,
+     "method": "mean+1std of annual 1-day maxima, /120mm ref"
+    },
+    "runoff_SCS_CN": {
+     "severity": 0.561,
+     "weight": 0.25,
+     "source": "projects/sat-io/open-datasets/HiHydroSoilv2_0/Hydrologic_Soil_Group_250m + ESA/WorldCover/v200",
+     "confidence": "computed",
+     "CN": 90,
+     "HSG": 3,
+     "wc_class": 50,
+     "S_mm": 28.2,
+     "Q_mm": 29.9,
+     "method": "NRCS TR-55, AMC II, dual HSG->D"
+    },
+    "catchment": {
+     "severity": 0.622,
+     "weight": 0.2,
+     "source": "WWF/HydroSHEDS/15ACC + WWF/HydroSHEDS/15CONDEM",
+     "confidence": "computed",
+     "flow_acc_cells": 1212,
+     "rel_elev_m": 8.1
+    },
+    "soil_saturation": {
+     "severity": 0.507,
+     "weight": 0.15,
+     "source": "NASA/SMAP/SPL4SMGP/008",
+     "confidence": "computed",
+     "caveat": "SMAP top ~5cm; Oct-Dec window each year"
+    },
+    "urbanization": {
+     "severity": 0.257,
+     "weight": 0.15,
+     "source": "JRC/GHSL/P2023A/GHS_BUILT_S",
+     "confidence": "computed",
+     "built_frac_2020": 0.366,
+     "built_change": 0.003
+    }
+   },
+   "excluded": [],
+   "risk": "flood",
+   "pfaf_id": 453803,
+   "runtime_s": 47.1
+  }
+ },
+ "S3": {
+  "site": {
+   "id": "S3",
+   "name": "Fresno plant (US-CA)",
+   "lat": 36.7378,
+   "lng": -119.7871
+  },
+  "drought": {
+   "hazard_0_1": 0.231,
+   "hazard_0_5": 1.16,
+   "attribution_pct": {
+    "rainfall_SPI": 15.7,
+    "water_balance_SPEI": 5.8,
+    "soil_moisture": 9.6,
+    "vegetation_NDVI": 8.0,
+    "runoff": 17.6,
+    "storage_GRACE": 43.3
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall_SPI": {
+     "severity": 0.207,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "index": 1.17,
+     "method": "gamma-SPI"
+    },
+    "water_balance_SPEI": {
+     "severity": 0.077,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY + MODIS/061/MOD16A2GF",
+     "confidence": "computed",
+     "index": 1.69,
+     "method": "z of P-PET (SPEI-lite)"
+    },
+    "soil_moisture": {
+     "severity": 0.148,
+     "weight": 0.15,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": 1.41
+    },
+    "vegetation_NDVI": {
+     "severity": 0.123,
+     "weight": 0.15,
+     "source": "MODIS/061/MOD13Q1",
+     "confidence": "computed",
+     "index": 1.51
+    },
+    "runoff": {
+     "severity": 0.232,
+     "weight": 0.175,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": 1.07
+    },
+    "storage_GRACE": {
+     "severity": 0.572,
+     "weight": 0.175,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "index": -0.29,
+     "caveat": "~300 km resolution - basin/regional signal, never site-scale"
+    }
+   },
+   "excluded": [],
+   "risk": "drought",
+   "pfaf_id": 774429,
+   "runtime_s": 2.4
+  },
+  "groundwater": {
+   "hazard_0_1": 0.794,
+   "hazard_0_5": 3.97,
+   "attribution_pct": {
+    "extraction_pressure": 42.9,
+    "aquifer_decline": 39.7,
+    "recharge_worry": 17.3
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "extraction_pressure": {
+     "severity": 0.828,
+     "weight": 0.35,
+     "source": "WRI Aqueduct gtd+bwd",
+     "confidence": "proxy",
+     "caveat": "proxy - site abstraction data required for full EP (CGWB / USGS NWIS in production)"
+    },
+    "aquifer_decline": {
+     "severity": 0.894,
+     "weight": 0.3,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "trend_cm_per_yr": -1.58,
+     "caveat": "~300 km resolution - basin/regional signal"
+    },
+    "recharge_worry": {
+     "severity": 0.585,
+     "weight": 0.2,
+     "source": "UCSB-CHG/CHIRPS/DAILY + projects/soilgrids-isric/sand_mean + ESA/WorldCover/v200 + COPERNICUS/DEM/GLO30",
+     "confidence": "computed",
+     "recharge_index": 0.415
+    },
+    "quality_QD": {
+     "severity": null,
+     "weight": 0.15,
+     "source": "no global groundwater-chemistry raster",
+     "confidence": "no-data",
+     "caveat": "excluded - weights renormalized; site lab data required"
+    }
+   },
+   "excluded": [
+    "quality_QD"
+   ],
+   "risk": "groundwater",
+   "pfaf_id": 774429,
+   "runtime_s": 2.0
+  },
+  "flood": {
+   "hazard_0_1": 0.516,
+   "hazard_0_5": 2.58,
+   "attribution_pct": {
+    "rainfall": 19.7,
+    "runoff_SCS_CN": 25.9,
+    "catchment": 18.3,
+    "soil_saturation": 29.1,
+    "urbanization": 7.0
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall": {
+     "severity": 0.406,
+     "weight": 0.25,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "design_storm_mm": 48.7,
+     "method": "mean+1std of annual 1-day maxima, /120mm ref"
+    },
+    "runoff_SCS_CN": {
+     "severity": 0.534,
+     "weight": 0.25,
+     "source": "projects/sat-io/open-datasets/HiHydroSoilv2_0/Hydrologic_Soil_Group_250m + ESA/WorldCover/v200",
+     "confidence": "computed",
+     "CN": 90,
+     "HSG": 3,
+     "wc_class": 50,
+     "S_mm": 28.2,
+     "Q_mm": 26.0,
+     "method": "NRCS TR-55, AMC II, dual HSG->D"
+    },
+    "catchment": {
+     "severity": 0.473,
+     "weight": 0.2,
+     "source": "WWF/HydroSHEDS/15ACC + WWF/HydroSHEDS/15CONDEM",
+     "confidence": "computed",
+     "flow_acc_cells": 1,
+     "rel_elev_m": 3.2
+    },
+    "soil_saturation": {
+     "severity": 1.0,
+     "weight": 0.15,
+     "source": "NASA/SMAP/SPL4SMGP/008",
+     "confidence": "computed",
+     "caveat": "SMAP top ~5cm; Oct-Dec window each year"
+    },
+    "urbanization": {
+     "severity": 0.242,
+     "weight": 0.15,
+     "source": "JRC/GHSL/P2023A/GHS_BUILT_S",
+     "confidence": "computed",
+     "built_frac_2020": 0.344,
+     "built_change": 0.004
+    }
+   },
+   "excluded": [],
+   "risk": "flood",
+   "pfaf_id": 774429,
+   "runtime_s": 15.8
+  }
+ },
+ "S4": {
+  "site": {
+   "id": "S4",
+   "name": "Hamburg plant (DE)",
+   "lat": 53.5511,
+   "lng": 9.9937
+  },
+  "drought": {
+   "hazard_0_1": 0.596,
+   "hazard_0_5": 2.98,
+   "attribution_pct": {
+    "soil_moisture": 31.3,
+    "vegetation_NDVI": 15.3,
+    "runoff": 34.2,
+    "storage_GRACE": 19.2
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall_SPI": {
+     "severity": null,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "index": null,
+     "method": "zscore-fallback"
+    },
+    "water_balance_SPEI": {
+     "severity": null,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY + MODIS/061/MOD16A2GF",
+     "confidence": "computed",
+     "index": null,
+     "method": "z of P-PET (SPEI-lite)"
+    },
+    "soil_moisture": {
+     "severity": 0.807,
+     "weight": 0.15,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": -1.23
+    },
+    "vegetation_NDVI": {
+     "severity": 0.395,
+     "weight": 0.15,
+     "source": "MODIS/061/MOD13Q1",
+     "confidence": "computed",
+     "index": 0.42
+    },
+    "runoff": {
+     "severity": 0.757,
+     "weight": 0.175,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": -1.03
+    },
+    "storage_GRACE": {
+     "severity": 0.426,
+     "weight": 0.175,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "index": 0.3,
+     "caveat": "~300 km resolution - basin/regional signal, never site-scale"
+    }
+   },
+   "excluded": [
+    "rainfall_SPI",
+    "water_balance_SPEI"
+   ],
+   "risk": "drought",
+   "pfaf_id": 232810,
+   "runtime_s": 2.9
+  },
+  "groundwater": {
+   "hazard_0_1": 0.337,
+   "hazard_0_5": 1.69,
+   "attribution_pct": {
+    "extraction_pressure": 17.8,
+    "aquifer_decline": 64.1,
+    "recharge_worry": 18.1
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "extraction_pressure": {
+     "severity": 0.146,
+     "weight": 0.35,
+     "source": "WRI Aqueduct gtd+bwd",
+     "confidence": "proxy",
+     "caveat": "proxy - site abstraction data required for full EP (CGWB / USGS NWIS in production)"
+    },
+    "aquifer_decline": {
+     "severity": 0.613,
+     "weight": 0.3,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "trend_cm_per_yr": -0.45,
+     "caveat": "~300 km resolution - basin/regional signal"
+    },
+    "recharge_worry": {
+     "severity": 0.259,
+     "weight": 0.2,
+     "source": "projects/soilgrids-isric/sand_mean + ESA/WorldCover/v200 + COPERNICUS/DEM/GLO30",
+     "confidence": "computed",
+     "recharge_index": 0.741
+    },
+    "quality_QD": {
+     "severity": null,
+     "weight": 0.15,
+     "source": "no global groundwater-chemistry raster",
+     "confidence": "no-data",
+     "caveat": "excluded - weights renormalized; site lab data required"
+    }
+   },
+   "excluded": [
+    "quality_QD"
+   ],
+   "risk": "groundwater",
+   "pfaf_id": 232810,
+   "runtime_s": 2.2
+  },
+  "flood": {
+   "hazard_0_1": 0.286,
+   "hazard_0_5": 1.43,
+   "attribution_pct": {
+    "catchment": 85.0,
+    "soil_saturation": 0.0,
+    "urbanization": 15.0
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall": {
+     "severity": null,
+     "weight": 0.25,
+     "source": "CHIRPS unavailable",
+     "confidence": "no-data"
+    },
+    "runoff_SCS_CN": {
+     "severity": null,
+     "weight": 0.25,
+     "source": "HYSOGs250m pending asset (ORNL DAAC DOI 10.3334/ORNLDAAC/1566)",
+     "confidence": "no-data",
+     "caveat": "pending asset - upload HYSOGs250m to GEE and re-run"
+    },
+    "catchment": {
+     "severity": 0.608,
+     "weight": 0.2,
+     "source": "WWF/HydroSHEDS/15ACC + WWF/HydroSHEDS/15CONDEM",
+     "confidence": "computed",
+     "flow_acc_cells": 856,
+     "rel_elev_m": 8.2
+    },
+    "soil_saturation": {
+     "severity": 0.0,
+     "weight": 0.15,
+     "source": "NASA/SMAP/SPL4SMGP/008",
+     "confidence": "computed",
+     "caveat": "SMAP top ~5cm; Oct-Dec window each year"
+    },
+    "urbanization": {
+     "severity": 0.143,
+     "weight": 0.15,
+     "source": "JRC/GHSL/P2023A/GHS_BUILT_S",
+     "confidence": "computed",
+     "built_frac_2020": 0.204,
+     "built_change": 0.001
+    }
+   },
+   "excluded": [
+    "rainfall",
+    "runoff_SCS_CN"
+   ],
+   "risk": "flood",
+   "pfaf_id": 232810,
+   "runtime_s": 2.2
+  }
+ },
+ "S5": {
+  "site": {
+   "id": "S5",
+   "name": "Riyadh plant (SA)",
+   "lat": 24.7136,
+   "lng": 46.6753
+  },
+  "drought": {
+   "hazard_0_1": 0.538,
+   "hazard_0_5": 2.69,
+   "attribution_pct": {
+    "rainfall_SPI": 7.5,
+    "water_balance_SPEI": 19.6,
+    "soil_moisture": 15.9,
+    "vegetation_NDVI": 24.0,
+    "runoff": 6.7,
+    "storage_GRACE": 26.3
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall_SPI": {
+     "severity": 0.229,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "index": 1.09,
+     "method": "gamma-SPI"
+    },
+    "water_balance_SPEI": {
+     "severity": 0.603,
+     "weight": 0.175,
+     "source": "UCSB-CHG/CHIRPS/DAILY + MODIS/061/MOD16A2GF",
+     "confidence": "computed",
+     "index": -0.41,
+     "method": "z of P-PET (SPEI-lite)"
+    },
+    "soil_moisture": {
+     "severity": 0.569,
+     "weight": 0.15,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": -0.28
+    },
+    "vegetation_NDVI": {
+     "severity": 0.86,
+     "weight": 0.15,
+     "source": "MODIS/061/MOD13Q1",
+     "confidence": "computed",
+     "index": -1.44
+    },
+    "runoff": {
+     "severity": 0.207,
+     "weight": 0.175,
+     "source": "NASA/GLDAS/V021/NOAH/G025/T3H",
+     "confidence": "computed",
+     "index": 1.17
+    },
+    "storage_GRACE": {
+     "severity": 0.808,
+     "weight": 0.175,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "index": -1.23,
+     "caveat": "~300 km resolution - basin/regional signal, never site-scale"
+    }
+   },
+   "excluded": [],
+   "risk": "drought",
+   "pfaf_id": 297818,
+   "runtime_s": 11.6
+  },
+  "groundwater": {
+   "hazard_0_1": 0.651,
+   "hazard_0_5": 3.26,
+   "attribution_pct": {
+    "extraction_pressure": 41.2,
+    "aquifer_decline": 36.8,
+    "recharge_worry": 21.9
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "extraction_pressure": {
+     "severity": 0.652,
+     "weight": 0.35,
+     "source": "WRI Aqueduct gtd+bwd",
+     "confidence": "proxy",
+     "caveat": "proxy - site abstraction data required for full EP (CGWB / USGS NWIS in production)"
+    },
+    "aquifer_decline": {
+     "severity": 0.68,
+     "weight": 0.3,
+     "source": "NASA/GRACE/MASS_GRIDS_V04/MASCON_CRI",
+     "confidence": "regional",
+     "trend_cm_per_yr": -0.72,
+     "caveat": "~300 km resolution - basin/regional signal"
+    },
+    "recharge_worry": {
+     "severity": 0.607,
+     "weight": 0.2,
+     "source": "UCSB-CHG/CHIRPS/DAILY + projects/soilgrids-isric/sand_mean + ESA/WorldCover/v200 + COPERNICUS/DEM/GLO30",
+     "confidence": "computed",
+     "recharge_index": 0.393
+    },
+    "quality_QD": {
+     "severity": null,
+     "weight": 0.15,
+     "source": "no global groundwater-chemistry raster",
+     "confidence": "no-data",
+     "caveat": "excluded - weights renormalized; site lab data required"
+    }
+   },
+   "excluded": [
+    "quality_QD"
+   ],
+   "risk": "groundwater",
+   "pfaf_id": 297818,
+   "runtime_s": 10.6
+  },
+  "flood": {
+   "hazard_0_1": 0.27,
+   "hazard_0_5": 1.35,
+   "attribution_pct": {
+    "rainfall": 20.0,
+    "runoff_SCS_CN": 30.3,
+    "catchment": 27.5,
+    "soil_saturation": 6.9,
+    "urbanization": 15.3
+   },
+   "attribution_note": "estimated contribution to the modelled score (not physical causation)",
+   "drivers": {
+    "rainfall": {
+     "severity": 0.216,
+     "weight": 0.25,
+     "source": "UCSB-CHG/CHIRPS/DAILY",
+     "confidence": "computed",
+     "design_storm_mm": 25.9,
+     "method": "mean+1std of annual 1-day maxima, /120mm ref"
+    },
+    "runoff_SCS_CN": {
+     "severity": 0.327,
+     "weight": 0.25,
+     "source": "projects/sat-io/open-datasets/HiHydroSoilv2_0/Hydrologic_Soil_Group_250m + ESA/WorldCover/v200",
+     "confidence": "computed",
+     "CN": 90,
+     "HSG": 3,
+     "wc_class": 50,
+     "S_mm": 28.2,
+     "Q_mm": 8.5,
+     "method": "NRCS TR-55, AMC II, dual HSG->D"
+    },
+    "catchment": {
+     "severity": 0.372,
+     "weight": 0.2,
+     "source": "WWF/HydroSHEDS/15ACC + WWF/HydroSHEDS/15CONDEM",
+     "confidence": "computed",
+     "flow_acc_cells": 1,
+     "rel_elev_m": 9.7
+    },
+    "soil_saturation": {
+     "severity": 0.125,
+     "weight": 0.15,
+     "source": "NASA/SMAP/SPL4SMGP/008",
+     "confidence": "computed",
+     "caveat": "SMAP top ~5cm; Oct-Dec window each year"
+    },
+    "urbanization": {
+     "severity": 0.275,
+     "weight": 0.15,
+     "source": "JRC/GHSL/P2023A/GHS_BUILT_S",
+     "confidence": "computed",
+     "built_frac_2020": 0.374,
+     "built_change": 0.045
+    }
+   },
+   "excluded": [],
+   "risk": "flood",
+   "pfaf_id": 297818,
+   "runtime_s": 2.3
+  }
+ }
+}
