@@ -159,7 +159,7 @@ hydrisai/
 
 ---
 
-## 5. Data model (Supabase — project `ouddfkokwpzyymttbljf`)
+## 5. Data model 
 
 | Table | Key | Contents |
 |---|---|---|
