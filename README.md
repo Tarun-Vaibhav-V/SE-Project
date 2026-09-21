@@ -7,7 +7,7 @@ data, never invented.
 
 ---
 
-## 1. Run it on a new machine (10 minutes)
+## 1. Run it on a new machine
 
 Prereqs: **Python 3.11+**, **Node 18+**, internet. Supabase is cloud-hosted (already seeded),
 so there is no database setup.
