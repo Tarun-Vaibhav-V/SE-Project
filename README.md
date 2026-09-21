@@ -249,7 +249,7 @@ Each row is created from its `*.example` template and stays local only.
 
 ---
 
-## 10. Known caveats (say these out loud in the pitch — they're features, not bugs)
+## 10. Known caveats 
 
 - Risk scores exist at Aqueduct basin resolution; sub-basin polygons refine *shape*, not *score*.
 - Groundwater EP is a labeled proxy; QD is excluded (no global groundwater-chemistry raster).
