@@ -232,7 +232,7 @@ Composite: renormalize weights over available severities → hazard 0–5 → at
 
 ---
 
-## 8. Frontend spec (S-01 / S-02 from the Water Stewardship Module xlsx)
+## 8. Frontend spec (S-01 / S-02 from the Water Stewardship Module)
 
 - **Theme**: dark command-center. Basemap Carto Dark Matter (chosen to solve the ocean-vs-Low-risk
   blue clash), glass panels, Inter for UI, **JetBrains Mono for every number**.
