@@ -5,17 +5,6 @@ return a multi-risk profile (scarcity / flood / drought / groundwater), **today 
 2030/2050 scenarios**, with **explainable drivers behind every score** — computed from satellite
 data, never invented.
 
-> 🔐 **Secrets are NOT committed.** Copy each `*.example` file to its real name and fill in
-> your own keys locally — `backend/.env.example` → `backend/.env`, `frontend/.env.example` →
-> `frontend/.env`, and place your GEE service-account JSON at the path in `GEE_SA_KEY_FILE`.
-> These files are git-ignored so real credentials never enter version control.
->
-> ⚠️ **If you previously committed keys** (they exist in this repo's git history), they are
-> already compromised: **rotate the Groq key, the Supabase service-role key, the NewsAPI key,
-> and delete/re-issue the GEE service-account JSON**, then purge history (`git filter-repo`)
-> before pushing. Google auto-scans public GitHub and disables leaked service-account keys
-> within minutes.
-
 ---
 
 ## 1. Run it on a new machine (10 minutes)
