@@ -44,7 +44,7 @@ implementation and gate tests; their outputs are already seeded into Supabase.
 ## 2. What this is (context for a new contributor or AI)
 
 - **Problem statement**: "Basin Intelligence and Water Risk" (see
-  `Problem Statement- DataCraft'26 Hydris AI.pdf`). Deliverables: interactive site map, basin
+  ). Deliverables: interactive site map, basin
   boundaries, current & future risk scores, explanation of what drives each score.
   
 - **PWI framework**: Positive Water Impact = **Availability / Quality / Accessibility**. We map
