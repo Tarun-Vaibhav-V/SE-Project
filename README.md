@@ -1,4 +1,4 @@
-# Hydris AI — Basin Intelligence & Water Risk (PS1)
+# Hydris AI — Basin Intelligence & Water Risk 
 
 **build.** Enter factory locations → automatically resolve each site's watershed →
 return a multi-risk profile (scarcity / flood / drought / groundwater), **today and under
