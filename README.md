@@ -25,7 +25,7 @@ implementation and gate tests; their outputs are already seeded into Supabase.
   WRI's 13 risk indicators onto these three dimensions (the ring gauges) — the vocabulary the
   judges score on.
 - **Design references** (all in repo root): three driver-formula toolkits (drought PDF,
-  groundwater PDF, flood DOCX), the Water Stewardship Module UI spec (xlsx — S-01/S-02 screens,
+  groundwater PDF), the Water Stewardship Module UI spec (S-01/S-02 screens,
   design tokens), and the Open Water Data Catalog (xlsx — dataset licenses).
 
 ### The one principle everything follows: the honesty layer
